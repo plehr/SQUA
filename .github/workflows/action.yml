@@ -12,5 +12,5 @@ jobs:
          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
          JACOCO_SOURCE_PATH: "/home/runner/work/SQUA/src"
         with:
-          coverageCommand: mvn test
+          coverageCommand: mvn test -f /home/runner/work/SQUA/pom.xml
           coverageLocations: /home/runner/work/SQUA/target/site/jacoco/jacoco.xml:jacoco
