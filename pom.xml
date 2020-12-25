@@ -32,8 +32,8 @@
 	</dependencies>
 
 	<build>
-	<sourceDirectory>src</sourceDirectory>
-	<testSourceDirectory>src</testSourceDirectory>
+		<sourceDirectory>src</sourceDirectory>
+		<testSourceDirectory>src</testSourceDirectory>
 
 		<pluginManagement>
 
