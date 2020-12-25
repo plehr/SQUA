@@ -10,7 +10,7 @@ jobs:
         env:
           # Set CC_TEST_REPORTER_ID as secret of your repo
          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-         JACOCO_SOURCE_PATH: "${{github.workspace}}/../src"
+         JACOCO_SOURCE_PATH: "/home/runner/work/SQUA/src"
         with:
           coverageCommand: mvn test
-          coverageLocations: ${{github.workspace}}/../target/site/jacoco/jacoco.xml:jacoco
+          coverageLocations: /home/runner/work/SQUA/target/site/jacoco/jacoco.xml:jacoco
