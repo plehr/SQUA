@@ -12,10 +12,8 @@ jobs:
           java-version: 1.8
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
-  test:
       - name: Run tests with Maven
         run: mvn -B test --file pom.xml
-  coverage:
       - name: Coverage
         run: mvn test
         uses: paambaati/codeclimate-action@v2.2.4
