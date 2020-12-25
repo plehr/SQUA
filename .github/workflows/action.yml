@@ -5,12 +5,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: CheckDir
+        run: ls -ltr ${{github.workspace}}
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
           # Set CC_TEST_REPORTER_ID as secret of your repo
          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-         JACOCO_SOURCE_PATH: "/home/runner/work/SQUA/src"
+         JACOCO_SOURCE_PATH: "${{github.workspace}}/../src"
         with:
-          coverageCommand: mvn test -f /home/runner/work/SQUA/pom.xml
-          coverageLocations: /home/runner/work/SQUA/target/site/jacoco/jacoco.xml:jacoco
+          coverageCommand: mvn test
+          coverageLocations: ${{github.workspace}}/../target/site/jacoco/jacoco.xml:jacoco
