@@ -12,6 +12,5 @@ jobs:
          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
          JACOCO_SOURCE_PATH: "${{github.workspace}}/src"
          with:
-             # The report file must be there, otherwise Code Climate won't find it
             coverageCommand: mvn test
             coverageLocations: ${{github.workspace}}/target/site/jacoco/jacoco.xml:jacoco
