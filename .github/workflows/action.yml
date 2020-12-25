@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@master
       - name: CheckDir
         run: ls -ltr ${{github.workspace}}
       - name: Test & publish code coverage
