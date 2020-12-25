@@ -17,7 +17,7 @@ jobs:
       - name: Coverage
         run: mvn test
       - uses: paambaati/codeclimate-action@v2.2.4
-         env:
+        env:
         CC_TEST_REPORTER_ID: 33591a14dc9c9177b1dc5017141d9fce73e8532810d889a1ead92f991e1bd166
-      with:
+        with:
         coverageCommand: mvn test
