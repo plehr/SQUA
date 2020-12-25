@@ -6,8 +6,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - name: CheckDir
-        run: ls -ltr ${{github.workspace}}
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
