@@ -1,7 +1,7 @@
 name: Java CI
 on: [push]
 jobs:
- build:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -12,12 +12,12 @@ jobs:
           java-version: 1.8
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
+  test:
       - name: Run tests with Maven
         run: mvn -B test --file pom.xml
+  coverage:
       - name: Coverage
         run: mvn test
-      - uses: paambaati/codeclimate-action@v2.2.4
+        uses: paambaati/codeclimate-action@v2.2.4
         env:
-        CC_TEST_REPORTER_ID: 33591a14dc9c9177b1dc5017141d9fce73e8532810d889a1ead92f991e1bd166
-        with:
-        coverageCommand: mvn test
+          CC_TEST_REPORTER_ID: 33591a14dc9c9177b1dc5017141d9fce73e8532810d889a1ead92f991e1bd166
