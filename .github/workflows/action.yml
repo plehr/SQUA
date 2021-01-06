@@ -1,7 +1,7 @@
-name: Java CI
+name: CodeClimate analyse
 on: [push]
 jobs:
-  analyse:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -9,37 +9,8 @@ jobs:
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
-          # Set CC_TEST_REPORTER_ID as secret of your repo
          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
          JACOCO_SOURCE_PATH: "${{github.workspace}}/src"
         with:
           coverageCommand: mvn test
           coverageLocations: ${{github.workspace}}/target/site/jacoco/jacoco.xml:jacoco
-    build_osx:
-     runs-on: macos-latest
-
-     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
-      - run: mvn --batch-mode --update-snapshots verify
-
-    build_win:
-     runs-on: windows-latest
-
-     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
-      - run: mvn --batch-mode --update-snapshots verify
-
-    build_lx:
-      runs-on: ubuntu-latest
-
-      steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
-      - run: mvn --batch-mode --update-snapshots verify
-      - run: mkdir staging && cp target/*.jar staging
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Package
-          path: staging
