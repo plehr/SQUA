@@ -1,7 +1,7 @@
 name: Java CI
 on: [push]
 jobs:
-  build:
+  analyse:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,3 +15,31 @@ jobs:
         with:
           coverageCommand: mvn test
           coverageLocations: ${{github.workspace}}/target/site/jacoco/jacoco.xml:jacoco
+    build_osx:
+     runs-on: macos-latest
+
+     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+      - run: mvn --batch-mode --update-snapshots verify
+
+    build_win:
+     runs-on: windows-latest
+
+     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+      - run: mvn --batch-mode --update-snapshots verify
+
+    build_lx:
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+      - run: mvn --batch-mode --update-snapshots verify
+      - run: mkdir staging && cp target/*.jar staging
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
