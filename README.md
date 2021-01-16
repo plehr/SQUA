@@ -19,3 +19,7 @@ This project is not a real program. We only use this for a presentation about so
 [![CodeClimate-Maintainability](https://api.codeclimate.com/v1/badges/4a54b5adf6f0a4d7dc01/maintainability)](https://codeclimate.com/github/plehr/SQUA/maintainability)
 
 [![CodeClimate-Test Coverage](https://api.codeclimate.com/v1/badges/4a54b5adf6f0a4d7dc01/test_coverage)](https://codeclimate.com/github/plehr/SQUA/test_coverage)
+
+## Sequenzdiagramm
+
+![Alt-Text](https://github.com/plehr/SQUA/docs/sequencediagram.png)
