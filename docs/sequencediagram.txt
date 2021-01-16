@@ -1,0 +1,33 @@
+URL: https://sequencediagram.org/
+
+title SD: https://github.com/plehr/SQUA
+
+participant Programmierer
+participant GitHub
+participant Code Climate
+participant GitHub Actions
+participant Worker Linux
+participant Worker MacOS
+participant Worker Windows
+
+Programmierer->GitHub: Code commit
+
+GitHub-->Programmierer: erfolgreich
+GitHub->GitHub Actions: notify call
+GitHub->Code Climate: Webhhook call, Code
+Code Climate-->>GitHub: Ergebnis
+group Analyse
+GitHub Actions->Worker Linux:Starte AnalyseCLI von Code Climate
+Worker Linux-->>Code Climate: Ergebnis Codeanalyse
+Code Climate-->>GitHub: Ergebnis
+end
+
+group Kompilierung und Test
+GitHub Actions->Worker Linux: Code zum kompilieren
+Worker Linux-->GitHub Actions:Ergebnis Kompilierung und Test
+GitHub Actions->Worker MacOS: Code zum kompilieren
+Worker MacOS-->GitHub Actions:Ergebnis Kompilierung und Test
+GitHub Actions->Worker Windows: Code zum kompilieren
+Worker Windows-->GitHub Actions:Ergebnis Kompilierung und Test
+end
+GitHub Actions-->>GitHub: Ergebnis Ausführung
