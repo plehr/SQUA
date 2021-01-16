@@ -22,4 +22,4 @@ This project is not a real program. We only use this for a presentation about so
 
 ## Sequenzdiagramm
 
-![Alt-Text](https://github.com/plehr/SQUA/docs/sequencediagram.png)
+![Sequenzdiagramm](https://raw.githubusercontent.com/plehr/SQUA/main/docs/sequencediagram.png)
